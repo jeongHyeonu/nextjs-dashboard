@@ -5,6 +5,8 @@
 - Next.js 스터디 기록 및 정리
 
 
+<hr><hr>
+
 ## Next.js 튜토리얼
 출처 : https://nextjs.org/learn/dashboard-app/getting-started 
 
@@ -18,6 +20,8 @@ pnpm은 기존 npm보다 빠르고 효율적이라고 한다. (공식 문서 : h
 
 - 프로젝트 패키지 설치 : `pnpm i`
 - 개발서버 시작 : `pnpm dev`
+
+<hr>
 
 ### CSS 스타일링
 
@@ -59,6 +63,8 @@ status 에 따라 색상을 변경할 수 있다.
 
 이외에도 CSS 라이브러리인 [styled-jsx](https://github.com/vercel/styled-jsx), [styled-components](https://github.com/vercel/next.js/tree/canary/examples/with-styled-components), [emotion](https://github.com/vercel/next.js/tree/canary/examples/with-emotion) 등 다른 스타일링 라이브러리를 적용해도 좋다.
 
+<hr>
+
 ### 글꼴/이미지 최적화
 
 #### 글꼴 최적화가 필요한 이유?
@@ -68,7 +74,7 @@ status 에 따라 색상을 변경할 수 있다.
 이때 Next.js는 모듈을 사용할 때 글꼴을 자동으로 최적화해 다른 정적 에셋과 함께 호스팅 → **추가 네트워크 요청 발생X**
 
 > 기본 글꼴 추가 예시 : [/app/ui/fonts.ts](https://github.com/jeongHyeonu/nextjs-dashboard/blob/main/app/ui/fonts.ts) 에 폰트 추가 후 [root layout](https://github.com/jeongHyeonu/nextjs-dashboard/blob/main/app/layout.tsx)에 적용 
-
+> 
 > 보조 글꼴 추가 예시 : [/app/ui/fonts.ts](https://github.com/jeongHyeonu/nextjs-dashboard/blob/main/app/ui/fonts.ts) 에 폰트 추가 후 [page](https://github.com/jeongHyeonu/nextjs-dashboard/blob/main/app/page.tsx)에 적용
 
 
@@ -82,15 +88,16 @@ status 에 따라 색상을 변경할 수 있다.
 
 > 데스크톱/모바일에서 반응형 이미지 예시 : [`/app/page.tsx`](https://github.com/jeongHyeonu/nextjs-dashboard/blob/main/app/page.tsx) 에서 `<Image>` 컴포넌트 참조
 
-
+<hr>
 
 ### 페이지/레이아웃 생성
 
-page 생성 예시 : [`/app/dashboard/page.tsx`](https://github.com/jeongHyeonu/nextjs-dashboard/blob/main/app/dashboard/page.tsx)
+page 생성 예시 : `/app/page.tsx` , `/app/dashboard/page.tsx` 처럼 만들어주면 된다.
 
 layout 생성 예시 : [`/app/dashboard/layout.tsx`](https://github.com/jeongHyeonu/nextjs-dashboard/blob/main/app/dashboard/layout.tsx)
 - 이 레이아웃은 사이드바 역할을 하여 [`/app/dashboard/invoices/page.tsx`](https://github.com/jeongHyeonu/nextjs-dashboard/blob/main/app/dashboard/invoices/page.tsx) 또는 [`/app/dashboard/customers/page.tsx`](https://github.com/jeongHyeonu/nextjs-dashboard/blob/main/app/dashboard/customers/page.tsx) 와 같은 하위 폴더 page에도 적용된다.
 
+<hr>
 
 ### 페이지 탐색
 
@@ -104,6 +111,8 @@ next.js는 연결된 경로 코드를 사전로드 및 자동 코드 분할하�
 
 ([next.js Docs : Linking and Navigating](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#how-routing-and-navigation-works))
 
+<hr>
+
 ### 활성화된 링크 표시
 
 'next/navigation' 의 `usePathname` 훅을 사용해서 현재 경로를 URL 에서 불러오고, `clsx` 로 현재 링크와 일치하는 링크에 css 스타일링을 적용한다. 
@@ -112,3 +121,13 @@ next.js는 연결된 경로 코드를 사전로드 및 자동 코드 분할하�
 
 ([참고 : 사이드바 예시](https://github.com/jeongHyeonu/nextjs-dashboard/blob/main/app/ui/dashboard/nav-links.tsx) 
 )
+
+<hr>
+
+### DB 설정
+
+Vercel에 배포했다면, 페이지 상단 Storage 대시보드에서 Connect Store → Create New → Postgres → Continue 로 DB를 생성하고, `.env` 파일에 DB 연결 코드를 복사/붙여넣기 하면 설정 완료
+
+( + postgres 외에 다른 DB도 설정할 수 있다 ) 
+
+<hr>
